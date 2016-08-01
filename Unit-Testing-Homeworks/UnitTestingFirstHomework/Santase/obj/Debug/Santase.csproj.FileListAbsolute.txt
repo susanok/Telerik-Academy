@@ -1,0 +1,5 @@
+C:\Users\Suzana Manova\Documents\Visual Studio 2015\Projects\UnitTestingFirstHomework\Santase\obj\Debug\Santase.csprojResolveAssemblyReference.cache
+C:\Users\Suzana Manova\Documents\Visual Studio 2015\Projects\UnitTestingFirstHomework\Santase\bin\Debug\Santase.dll
+C:\Users\Suzana Manova\Documents\Visual Studio 2015\Projects\UnitTestingFirstHomework\Santase\bin\Debug\Santase.pdb
+C:\Users\Suzana Manova\Documents\Visual Studio 2015\Projects\UnitTestingFirstHomework\Santase\obj\Debug\Santase.dll
+C:\Users\Suzana Manova\Documents\Visual Studio 2015\Projects\UnitTestingFirstHomework\Santase\obj\Debug\Santase.pdb

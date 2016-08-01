@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{747EABB0-CF40-4800-B3FA-E467CF6CA3F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Santase</RootNamespace>
+    <AssemblyName>Santase</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Logic\Announce.cs" />
+    <Compile Include="Logic\Cards\Card.cs" />
+    <Compile Include="Logic\Cards\CardCollection.cs" />
+    <Compile Include="Logic\Cards\CardExtensions.cs" />
+    <Compile Include="Logic\Cards\CardSuit.cs" />
+    <Compile Include="Logic\Cards\CardType.cs" />
+    <Compile Include="Logic\Cards\Deck.cs" />
+    <Compile Include="Logic\Cards\IDeck.cs" />
+    <Compile Include="Logic\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Logic\Extensions\PlayerPositionExtensions.cs" />
+    <Compile Include="Logic\Extensions\RandomProvider.cs" />
+    <Compile Include="Logic\GameMechanics\ISantaseGame.cs" />
+    <Compile Include="Logic\GameMechanics\Round.cs" />
+    <Compile Include="Logic\GameMechanics\RoundPlayerInfo.cs" />
+    <Compile Include="Logic\GameMechanics\RoundResult.cs" />
+    <Compile Include="Logic\GameMechanics\SantaseGame.cs" />
+    <Compile Include="Logic\GameMechanics\Trick.cs" />
+    <Compile Include="Logic\GameRulesProvider.cs" />
+    <Compile Include="Logic\IDeepCloneable.cs" />
+    <Compile Include="Logic\IGameRules.cs" />
+    <Compile Include="Logic\InternalGameException.cs" />
+    <Compile Include="Logic\Logger\ILogger.cs" />
+    <Compile Include="Logic\Logger\MemoryLogger.cs" />
+    <Compile Include="Logic\Logger\NoLogger.cs" />
+    <Compile Include="Logic\PlayerActionValidate\AnnounceValidator.cs" />
+    <Compile Include="Logic\PlayerActionValidate\ChangeTrumpActionValidator.cs" />
+    <Compile Include="Logic\PlayerActionValidate\CloseGameActionValidator.cs" />
+    <Compile Include="Logic\PlayerActionValidate\IAnnounceValidator.cs" />
+    <Compile Include="Logic\PlayerActionValidate\IPlayerActionValidator.cs" />
+    <Compile Include="Logic\PlayerActionValidate\PlayCardActionValidator.cs" />
+    <Compile Include="Logic\PlayerActionValidate\PlayerActionValidator.cs" />
+    <Compile Include="Logic\PlayerPosition.cs" />
+    <Compile Include="Logic\Players\BasePlayer.cs" />
+    <Compile Include="Logic\Players\IPlayer.cs" />
+    <Compile Include="Logic\Players\PlayerAction.cs" />
+    <Compile Include="Logic\Players\PlayerActionType.cs" />
+    <Compile Include="Logic\Players\PlayerDecorator.cs" />
+    <Compile Include="Logic\Players\PlayerTurnContext.cs" />
+    <Compile Include="Logic\Players\PlayerWithLoggerDecorator.cs" />
+    <Compile Include="Logic\RoundStates\BaseRoundState.cs" />
+    <Compile Include="Logic\RoundStates\FinalRoundState.cs" />
+    <Compile Include="Logic\RoundStates\IStateManager.cs" />
+    <Compile Include="Logic\RoundStates\MoreThanTwoCardsLeftRoundState.cs" />
+    <Compile Include="Logic\RoundStates\StartRoundState.cs" />
+    <Compile Include="Logic\RoundStates\StateManager.cs" />
+    <Compile Include="Logic\RoundStates\TwoCardsLeftRoundState.cs" />
+    <Compile Include="Logic\SantaseGameRules.cs" />
+    <Compile Include="Logic\WinnerLogic\CardWinnerLogic.cs" />
+    <Compile Include="Logic\WinnerLogic\ICardWinnerLogic.cs" />
+    <Compile Include="Logic\WinnerLogic\IRoundWinnerPointsLogic.cs" />
+    <Compile Include="Logic\WinnerLogic\RoundWinnerPoints.cs" />
+    <Compile Include="Logic\WinnerLogic\RoundWinnerPointsPointsLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
