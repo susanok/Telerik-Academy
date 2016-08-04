@@ -56,7 +56,6 @@
     <Compile Include="Extended\Creatures\Goblin.cs" />
     <Compile Include="Extended\Creatures\Griffin.cs" />
     <Compile Include="Extended\Creatures\WolfRaider.cs" />
-    <Compile Include="Extended\DeleteMe.cs" />
     <Compile Include="Extended\ExtendedBattleManager.cs" />
     <Compile Include="Extended\ExtendedCreaturesFactory.cs" />
     <Compile Include="Extended\Specialties\AddAttackWhenSkip.cs" />

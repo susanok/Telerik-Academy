@@ -4,3 +4,9 @@ C:\Users\Suzana Manova\Desktop\OOP-Exams\2. Army of Creatures_Description\Source
 C:\Users\Suzana Manova\Desktop\OOP-Exams\2. Army of Creatures_Description\Source\ArmyOfCreatures\obj\Debug\ArmyOfCreatures.csprojResolveAssemblyReference.cache
 C:\Users\Suzana Manova\Desktop\OOP-Exams\2. Army of Creatures_Description\Source\ArmyOfCreatures\obj\Debug\ArmyOfCreatures.exe
 C:\Users\Suzana Manova\Desktop\OOP-Exams\2. Army of Creatures_Description\Source\ArmyOfCreatures\obj\Debug\ArmyOfCreatures.pdb
+C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Unit-Testing-Army-Of-Creatures\Solution\ArmyOfCreatures\bin\Debug\ArmyOfCreatures.exe.config
+C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Unit-Testing-Army-Of-Creatures\Solution\ArmyOfCreatures\obj\Debug\ArmyOfCreatures.exe
+C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Unit-Testing-Army-Of-Creatures\Solution\ArmyOfCreatures\obj\Debug\ArmyOfCreatures.pdb
+C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Unit-Testing-Army-Of-Creatures\Solution\ArmyOfCreatures\obj\Debug\ArmyOfCreatures.csprojResolveAssemblyReference.cache
+C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Unit-Testing-Army-Of-Creatures\Solution\ArmyOfCreatures\bin\Debug\ArmyOfCreatures.exe
+C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Unit-Testing-Army-Of-Creatures\Solution\ArmyOfCreatures\bin\Debug\ArmyOfCreatures.pdb
