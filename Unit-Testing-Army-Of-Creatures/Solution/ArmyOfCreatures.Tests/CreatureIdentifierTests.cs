@@ -33,5 +33,31 @@
             Assert.IsInstanceOf<CreatureIdentifier>(identifier);
         }
 
+        [Test]
+        public void CreatureIdentifierFromString_WhenValueIsPassed_ShouldReturnExpectedCreatureType()
+        {
+            var identifier = CreatureIdentifier.CreatureIdentifierFromString("Angel(1)");
+
+            Assert.AreEqual("Angel", identifier.CreatureType);
+        }
+
+        [Test]
+        public void CreatureIdentifierFromString_WhenValueIsPassed_ShouldReturnExpectedArmyNumber()
+        {
+            var identifier = CreatureIdentifier.CreatureIdentifierFromString("Angel(1)");
+
+            Assert.AreEqual(1, identifier.ArmyNumber);
+        }
+
+        [Test]
+        public void CreatureIdentifierToString_WhenValueIsPassed_ShouldReturnExpectedString()
+        {
+            var identifier = CreatureIdentifier.CreatureIdentifierFromString("Angel(1)");
+
+            var result = identifier.ToString();
+
+            Assert.AreEqual("Angel(1)", result);
+        }
+
     }
 }

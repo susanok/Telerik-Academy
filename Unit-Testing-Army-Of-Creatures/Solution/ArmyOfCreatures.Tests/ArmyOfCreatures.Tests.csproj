@@ -84,8 +84,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleManagerAddCreaturesTests.cs" />
+    <Compile Include="BattleManagerAttackTests.cs" />
     <Compile Include="CreatureIdentifierTests.cs" />
     <Compile Include="CreaturesFactoryTests.cs" />
+    <Compile Include="MockedClasses\MockedBattleManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
