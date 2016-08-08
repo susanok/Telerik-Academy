@@ -24,5 +24,7 @@ namespace ArmyOfCreatures.Tests
 
             Assert.Throws<ArgumentNullException>(() => commandManager.ProcessCommand(null, battleManager));
         }
+
+       
     }
 }
