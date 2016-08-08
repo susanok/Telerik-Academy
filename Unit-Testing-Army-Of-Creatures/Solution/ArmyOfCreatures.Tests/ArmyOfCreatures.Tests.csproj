@@ -87,8 +87,10 @@
     <Compile Include="BattleManagerAddCreaturesTests.cs" />
     <Compile Include="BattleManagerAttackTests.cs" />
     <Compile Include="BattleManagerSkipTests.cs" />
+    <Compile Include="CommandManagerTests.cs" />
     <Compile Include="CreatureIdentifierTests.cs" />
     <Compile Include="CreaturesFactoryTests.cs" />
+    <Compile Include="CreaturesInBattleTests.cs" />
     <Compile Include="MockedClasses\MockedBattleManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
