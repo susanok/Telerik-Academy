@@ -10,7 +10,7 @@ using System.Linq;
 namespace ArmyOfCreatures.Tests
 {
     [TestFixture]
-    class BattleManagerAttackTests
+    public class BattleManagerAttackTests
     {
         [Test]
 

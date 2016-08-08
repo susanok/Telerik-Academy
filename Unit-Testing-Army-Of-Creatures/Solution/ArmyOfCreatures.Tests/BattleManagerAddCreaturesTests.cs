@@ -9,7 +9,7 @@ using ArmyOfCreatures.Logic.Creatures;
 namespace ArmyOfCreatures.Tests
 {
     [TestFixture]
-    class BattleManagerAddCreaturesTests
+    public class BattleManagerAddCreaturesTests
     {
         [Test]
 
