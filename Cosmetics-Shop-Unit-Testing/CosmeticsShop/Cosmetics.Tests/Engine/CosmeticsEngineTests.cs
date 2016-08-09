@@ -146,38 +146,29 @@ namespace Cosmetics.Tests.Engine
             var commandName = "ShowCategory";
             var categoryName = "ForMale";
 
-            //mock the objects for the engine constructor
             var mockedFactory = new Mock<ICosmeticsFactory>();
             var mockedShoppingCart = new Mock<IShoppingCart>();
             var mockedParser = new Mock<ICommandParser>();
 
-            //mock the objects that needs to process the command
             var mockedCategory = new Mock<ICategory>();
             var mockedCommand = new Mock<ICommand>();
 
-            // setup the fake command getters to return correct things
             mockedCommand.SetupGet(x => x.Name).Returns(commandName);
             mockedCommand.SetupGet(x => x.Parameters).Returns(new List<string>() { categoryName });
             mockedCategory.SetupGet(x => x.Name).Returns(categoryName);
 
-            //setup the ReadCommands method
-            //behaviour to returns a list with the mocked command
             mockedParser.Setup(x => x.ReadCommands())
                 .Returns(new List<ICommand>() { mockedCommand.Object });
 
-            //mock the engine
             var engine = new MockedCosmeticsEngine(
                 mockedFactory.Object,
                 mockedShoppingCart.Object,
                 mockedParser.Object);
 
-            //add the category in the list of categories
             engine.Categories.Add(categoryName, mockedCategory.Object);
 
-            //Act
             engine.Start();
 
-            //check that print is called
             mockedCategory.Verify(x => x.Print(), Times.Once);
 
         }
@@ -193,16 +184,13 @@ namespace Cosmetics.Tests.Engine
             var shampooMililiters = "500";
             var shampooUsage = "everyday";
 
-            //mock the objects for the engine constructor
             var mockedFactory = new Mock<ICosmeticsFactory>();
             var mockedShoppingCart = new Mock<IShoppingCart>();
             var mockedParser = new Mock<ICommandParser>();
 
-            //mock the objects that needs to process the command
             var mockedShampoo = new Mock<IShampoo>();
             var mockedCommand = new Mock<ICommand>();
 
-            // setup the fake command getters to return correct things
             mockedCommand.SetupGet(x => x.Name).Returns(commandName);
             mockedCommand.SetupGet(x => x.Parameters)
                 .Returns(new List<string>() {
@@ -216,21 +204,17 @@ namespace Cosmetics.Tests.Engine
 
             mockedFactory.Setup(x => x.CreateShampoo(shampooName, shampoBrand, 0.50M, GenderType.Men, 500, UsageType.EveryDay))
                 .Returns(mockedShampoo.Object);
-            //setup the ReadCommands method
-            //behaviour to returns a list with the mocked command
+
             mockedParser.Setup(x => x.ReadCommands())
                 .Returns(new List<ICommand>() { mockedCommand.Object });
 
-            //mock the engine
             var engine = new MockedCosmeticsEngine(
                 mockedFactory.Object,
                 mockedShoppingCart.Object,
                 mockedParser.Object);
 
-            //Act
             engine.Start();
 
-            //check that shampoo is added
             Assert.IsTrue(engine.Products.ContainsKey(shampooName));
             Assert.AreSame(mockedShampoo.Object, engine.Products[shampooName]);  
         }
@@ -238,7 +222,6 @@ namespace Cosmetics.Tests.Engine
         [Test]
         public void Start_CreateToothpasteInputIsValid_ShouldBeAddedTheNewToothPasteToTheListOfProducts()
         {
-            //CreateToothpaste White+ Colgate 15.50 men fluor,bqla,golqma
             var commandName = "CreateToothpaste";
             var pasteName = "White+";
             var pasteBrand = "Colgate";
@@ -321,35 +304,27 @@ namespace Cosmetics.Tests.Engine
             var commandName = "RemoveFromShoppingCart";
             var productName = "Cool";
 
-            //mock objects for the engine constructor
             var mockedFactory = new Mock<ICosmeticsFactory>();
             var mockedShoppingCart = new Mock<IShoppingCart>();
             var mockedParser = new Mock<ICommandParser>();
 
-            //mock the fake command and the fake product
             var mockedCommand = new Mock<ICommand>();
             var mockedShampoo = new Mock<IShampoo>();
 
-            //setup mocked command name and parameters to return expected things
             mockedCommand.SetupGet(x => x.Name).Returns(commandName);
             mockedCommand.SetupGet(x => x.Parameters).Returns(new List<string>() { productName });
 
-            //setup the fake product name to return expected name
             mockedShampoo.SetupGet(x => x.Name).Returns(productName);
 
-            //setup the mocked parser who should reads the commands and returns list with the mocked command
             mockedParser.Setup(x => x.ReadCommands()).Returns(new List<ICommand>() { mockedCommand.Object });
 
-            //mock the engine
             var engine = new MockedCosmeticsEngine(
                 mockedFactory.Object,
                 mockedShoppingCart.Object,
                 mockedParser.Object);
 
-            //add the mocked product to the mocked engine
             engine.Products.Add(productName, mockedShampoo.Object);
 
-            //add the mocked product to the mocked shopping cart
             mockedShoppingCart.Setup(x => x.ContainsProduct(mockedShampoo.Object)).Returns(true);
 
             engine.Start();
