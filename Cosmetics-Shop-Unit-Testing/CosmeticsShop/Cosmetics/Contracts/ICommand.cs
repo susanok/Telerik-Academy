@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    interface ICommand
+    internal interface ICommand
     {
         string Name { get; }
 

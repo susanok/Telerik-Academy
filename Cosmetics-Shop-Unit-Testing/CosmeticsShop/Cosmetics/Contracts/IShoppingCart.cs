@@ -1,6 +1,6 @@
 ﻿namespace Cosmetics.Contracts
 {
-    public interface IShoppingCart
+    internal interface IShoppingCart
     {
         void AddProduct(IProduct product);
 

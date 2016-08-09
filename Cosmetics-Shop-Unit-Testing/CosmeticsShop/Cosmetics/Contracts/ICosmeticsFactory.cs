@@ -4,7 +4,7 @@
 
     using Cosmetics.Common;
 
-    public interface ICosmeticsFactory
+    internal interface ICosmeticsFactory
     {
         ICategory CreateCategory(string name);
 
@@ -12,6 +12,6 @@
 
         IToothpaste CreateToothpaste(string name, string brand, decimal price, GenderType gender, IList<string> ingredients);
 
-        IShoppingCart ShoppingCart();
+        IShoppingCart CreateShoppingCart();
     }
 }

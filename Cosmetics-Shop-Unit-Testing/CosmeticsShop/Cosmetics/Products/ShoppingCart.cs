@@ -3,46 +3,39 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Contracts;
 
-    public class ShoppingCart : IShoppingCart
+    using Cosmetics.Contracts;
+    using Cosmetics.Common;
+
+    internal class ShoppingCart : IShoppingCart
     {
-        private IList<IProduct> products;
+        protected readonly IList<IProduct> products;
 
         public ShoppingCart()
         {
-            products = new List<IProduct>();
+            this.products = new List<IProduct>();
         }
 
         public void AddProduct(IProduct product)
         {
+            Validator.CheckIfNull(product, string.Format(GlobalErrorMessages.ObjectCannotBeNull, "Product to add to cart"));
             this.products.Add(product);
-        }
-
-        public bool ContainsProduct(IProduct product)
-        {
-            bool containsProduct = this.products.Contains(product);
-
-            return containsProduct;
         }
 
         public void RemoveProduct(IProduct product)
         {
+            Validator.CheckIfNull(product, string.Format(GlobalErrorMessages.ObjectCannotBeNull, "Product to remove from cart"));
             this.products.Remove(product);
+        }
+
+        public bool ContainsProduct(IProduct product)
+        {
+            return this.products.Contains(product);
         }
 
         public decimal TotalPrice()
         {
-            decimal totalprice = 0;
-
-            foreach (var product in products)
-            {
-                totalprice += product.Price;
-            }
-
-            return totalprice;
+            return this.products.Sum(pr => pr.Price);
         }
     }
 }

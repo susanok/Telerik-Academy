@@ -2,7 +2,7 @@
 {
     using Cosmetics.Common;
 
-    public interface IShampoo : IProduct
+    internal interface IShampoo : IProduct
     {
         uint Milliliters { get; }
 

@@ -1,42 +1,20 @@
 ﻿namespace Cosmetics.Products
 {
-    using Common;
-    using Contracts;
     using System.Text;
 
-    public class Product : IProduct
+    using Cosmetics.Common;
+    using Cosmetics.Contracts;
+
+    internal abstract class Product : IProduct
     {
-        private const string ProductNameToString = "Product name";
-        private const string ProductBrandToString = "Product brand";
-        private const string GenderToString = "Gender";
-        private const string PriceToString = "Price";
-        private const int MinLengthName = 3;
-        private const int MaxLength = 10;
-        private const int MinLenghtBrand = 2;
+        private const int MinBrandLength = 2;
+        private const int MinStringLength = 3;
+        private const int MaxStringLength = 10;
+        private const string ProductName = "Product name";
+        private const string ProductBrand = "Product brand";
 
-        private string messageLengthBrand = string
-            .Format(GlobalErrorMessages
-            .InvalidStringLength, ProductBrandToString, MinLenghtBrand, MaxLength);
-        private string messageLengthName = string
-            .Format(GlobalErrorMessages
-            .InvalidStringLength, ProductNameToString, MinLengthName, MaxLength);
-        private string messageNullOrEmptyBrand = string
-            .Format(GlobalErrorMessages
-            .StringCannotBeNullOrEmpty, ProductBrandToString);
-        private string messageNullOrEmptyName = string
-            .Format(GlobalErrorMessages
-            .StringCannotBeNullOrEmpty, ProductNameToString);
-        private string messageNullPrice = string
-            .Format(GlobalErrorMessages
-            .ObjectCannotBeNull, PriceToString);
-        private string messageNullGender = string
-            .Format(GlobalErrorMessages
-            .ObjectCannotBeNull, GenderToString);
-
-        private string brand;
-        private GenderType gender;
         private string name;
-        private decimal price;
+        private string brand;
 
         public Product(string name, string brand, decimal price, GenderType gender)
         {
@@ -44,6 +22,20 @@
             this.Brand = brand;
             this.Price = price;
             this.Gender = gender;
+        }
+
+        public string Name
+        {
+            get 
+            {
+                return this.name;
+            }
+            private set
+            {
+                Validator.CheckIfStringIsNullOrEmpty(value, string.Format(GlobalErrorMessages.StringCannotBeNullOrEmpty, ProductName));
+                Validator.CheckIfStringLengthIsValid(value, MaxStringLength, MinStringLength, string.Format(GlobalErrorMessages.InvalidStringLength, ProductName, MinStringLength, MaxStringLength));
+                this.name = value;
+            }
         }
 
         public string Brand
@@ -54,62 +46,22 @@
             }
             private set
             {
-                Validator.CheckIfStringLengthIsValid(value, MaxLength, MinLenghtBrand, messageLengthBrand);
-                Validator.CheckIfStringIsNullOrEmpty(value, messageNullOrEmptyBrand);
+                Validator.CheckIfStringIsNullOrEmpty(value, string.Format(GlobalErrorMessages.StringCannotBeNullOrEmpty, ProductBrand));
+                Validator.CheckIfStringLengthIsValid(value, MaxStringLength, MinBrandLength, string.Format(GlobalErrorMessages.InvalidStringLength, ProductBrand, MinBrandLength, MaxStringLength));
                 this.brand = value;
             }
         }
 
-        public GenderType Gender
-        {
-            get
-            {
-                return this.gender;
-            }
-            private set
-            {
-                Validator.CheckIfNull(value, messageNullGender);
-                this.gender = value;
-            }
-        }
+        public decimal Price { get; protected set; }
 
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
-            private set
-            {
-                Validator.CheckIfStringLengthIsValid(value, MaxLength, MinLengthName, messageLengthName);
-                Validator.CheckIfStringIsNullOrEmpty(value, messageNullOrEmptyName);
-                this.name = value;
-            }
-        }
-
-        public virtual decimal Price
-        {
-            get
-            {
-                return this.price;
-            }
-            protected set
-            {
-                Validator.CheckIfNull(value, messageNullPrice);
-                this.price = value;
-            }
-        }
-
+        public GenderType Gender { get; private set; }
+        
         public virtual string Print()
         {
-            StringBuilder result = new StringBuilder();
-
-            result.AppendFormat("- {0} - {1}:", this.Brand, this.Name);
-            result.AppendLine();
-            result.AppendFormat("  * Price: ${0}", this.Price);
-            result.AppendLine();
-            result.AppendFormat("  * For gender: {0}", this.Gender);
-
+            var result = new StringBuilder();
+            result.AppendLine(string.Format("- {0} - {1}:", this.Brand, this.Name));
+            result.AppendLine(string.Format("  * Price: ${0}", this.Price));
+            result.Append(string.Format("  * For gender: {0}", this.Gender));
             return result.ToString();
         }
     }

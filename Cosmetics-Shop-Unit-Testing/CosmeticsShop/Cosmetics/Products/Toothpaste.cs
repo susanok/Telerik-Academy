@@ -1,65 +1,46 @@
 ﻿namespace Cosmetics.Products
 {
-    using Common;
-    using Contracts;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
 
-    public class Toothpaste : Product, IToothpaste
+    using Cosmetics.Contracts;
+    using Cosmetics.Common;
+
+    internal class Toothpaste : Product, IToothpaste, IProduct
     {
-        private const int MinLength = 4;
-        private const int MaxLength = 12;
-        private const string EachIngredientToString = "Each ingredient";
+        private const int MinLengthIngredient = 4;
+        private const int MaxLengthIngredient = 12;
 
-        private string message = string
-            .Format(GlobalErrorMessages
-            .InvalidStringLength, EachIngredientToString, MinLength, MaxLength);
-
-        private IList<string> ingredientsList;
+        private readonly IList<string> ingredients;
 
         public Toothpaste(string name, string brand, decimal price, GenderType gender, IList<string> ingredients)
             : base(name, brand, price, gender)
         {
-            this.IngredientsList = ingredients;
+            this.ValidateIngredients(ingredients);
+            this.ingredients = ingredients;
         }
 
         public string Ingredients
         {
-            get
-            {
-                return string.Join(", ", this.ingredientsList);
-            }
-            
+            get { return string.Join(", ", this.ingredients); }
         }
-
-        public IList<string> IngredientsList
-        {
-            get
-            {
-                return this.ingredientsList;
-            }
-            private set
-            {
-                foreach (var item in value)
-                {
-                    Validator.CheckIfStringLengthIsValid(item, MaxLength, MinLength, message);
-                }
-
-                this.ingredientsList = value;
-            }
-        }
-
-        public object StrngBuilder { get; private set; }
 
         public override string Print()
         {
-            StringBuilder result = new StringBuilder();
-
-            result.Append(base.Print());
-            result.AppendLine();
-            result.AppendFormat("  * Ingredients: {0}", this.Ingredients);
+            var result = new StringBuilder();
+            result.AppendLine(base.Print());
+            result.Append(string.Format("  * Ingredients: {0}", this.Ingredients));
             return result.ToString();
+        }
+
+        private void ValidateIngredients(IList<string> ingredients)
+        {
+            if (ingredients.Any(i => i.Length < MinLengthIngredient || i.Length > MaxLengthIngredient))
+            {
+                throw new IndexOutOfRangeException(string.Format(GlobalErrorMessages.InvalidStringLength, "Each ingredient", MinLengthIngredient, MaxLengthIngredient));
+            }
         }
     }
 }

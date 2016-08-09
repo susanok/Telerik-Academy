@@ -1,31 +1,25 @@
 ﻿namespace Cosmetics.Products
 {
-    using Common;
-    using Contracts;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
 
-    public class Category : ICategory
-    {
-        private const string CategoryNameToString = "Category name";
-        private const int MinLegth = 2;
-        private const int MaxLength = 15;
-        private const string ProductsInTotal = "{0} products in total";
-        private const string ProductSingle = "{0} product in total";
-        private const string CategoryString = "{0} category - ";
+    using Cosmetics.Contracts;
+    using Cosmetics.Common;
 
-        private string messageLength = string.Format(GlobalErrorMessages.InvalidStringLength, CategoryNameToString, MinLegth, MaxLength);
-        private string messageNull = string.Format(GlobalErrorMessages.StringCannotBeNullOrEmpty, CategoryNameToString);
+    internal class Category : ICategory
+    {
+        private const int MinCategoryNameLength = 2;
+        private const int MaxCategoryNameLength = 15;
 
         private string name;
-        private List<IProduct> products;
+        protected readonly IList<IProduct> products;
 
         public Category(string name)
         {
             this.Name = name;
-            products = new List<IProduct>();
+            this.products = new List<IProduct>();
         }
 
         public string Name
@@ -34,66 +28,49 @@
             {
                 return this.name;
             }
-
             private set
             {
-                
-                Validator.CheckIfStringLengthIsValid(value, MaxLength, MinLegth, messageLength);
-                Validator.CheckIfStringIsNullOrEmpty(value, messageNull);
+                Validator.CheckIfStringIsNullOrEmpty(value, string.Format(GlobalErrorMessages.StringCannotBeNullOrEmpty, "Category name"));
+                Validator.CheckIfStringLengthIsValid(value, MaxCategoryNameLength, MinCategoryNameLength, string.Format(GlobalErrorMessages.InvalidStringLength, "Category name", MinCategoryNameLength, MaxCategoryNameLength));
                 this.name = value;
             }
         }
 
-        public void AddCosmetics(IProduct cosmetics)
+        public void AddProduct(IProduct product)
         {
-            products.Add(cosmetics);
+            Validator.CheckIfNull(product, string.Format(GlobalErrorMessages.ObjectCannotBeNull, "Cosmetics to add to category"));
+            this.products.Add(product);
         }
 
-        
+        public void RemoveProduct(IProduct product)
+        {
+            Validator.CheckIfNull(product, string.Format(GlobalErrorMessages.ObjectCannotBeNull, "Cosmetics to remove from category"));
+            if (!this.products.Contains(product))
+            {
+                throw new InvalidOperationException(string.Format("Product {0} does not exist in category {1}!", product.Name, this.Name));
+            }
+
+            this.products.Remove(product);
+        }
+
         public string Print()
         {
-            StringBuilder result = new StringBuilder();
-            
-            result.AppendFormat(CategoryString, this.Name);
-            
-            if(this.products.Count == 0)
-            {
-                result.AppendFormat(ProductsInTotal, this.products.Count);
-            }
-            else if(this.products.Count == 1)
-            {
-                result.AppendFormat(ProductSingle, this.products.Count);
-                result.AppendLine();
-                foreach (var product in products)
-                {
-                    result.Append(product.Print());
-                }
-            }
-            else
-            {
-                result.AppendFormat(ProductsInTotal, this.products.Count);
-                var sortedProducts = products.OrderBy(x => x.Brand).ThenByDescending(x => x.Price);
-                foreach (var product in sortedProducts)
-                {
-                    result.AppendLine();
-                    result.Append(product.Print());
-                    
-                }
-            }
-           
-            return result.ToString();
-        }
+            var categoryString = string.Format("{0} category - {1} {2} in total", this.Name, this.products.Count, this.products.Count != 1 ? "products" : "product");
 
-        public void RemoveCosmetics(IProduct cosmetics)
-        {
-            int index = products.IndexOf(cosmetics);
-            if (index < 0)
+            var result = new StringBuilder();
+            result.AppendLine(categoryString);
+
+            var sortedProducts =
+                this.products
+                    .OrderBy(pr => pr.Brand)
+                    .ThenByDescending(pr => pr.Price);
+
+            foreach (var product in sortedProducts)
             {
-                string msg = string.Format("Product {0} does not exist in category {1}!", cosmetics.Name, this.Name);
-                throw new IndexOutOfRangeException();
+                result.AppendLine(product.Print());
             }
 
-            products.RemoveAt(index);
+            return result.ToString().Trim();
         }
     }
 }

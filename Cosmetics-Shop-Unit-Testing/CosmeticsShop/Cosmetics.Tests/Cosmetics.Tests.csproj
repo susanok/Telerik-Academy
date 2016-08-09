@@ -82,6 +82,8 @@
   <ItemGroup>
     <Compile Include="Common\ValidatorTests.cs" />
     <Compile Include="Engine\CommandTests.cs" />
+    <Compile Include="Engine\CosmeticsEngineTests.cs" />
+    <Compile Include="MockedClasses\MockedCosmeticsEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

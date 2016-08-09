@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public interface IToothpaste : IProduct
+    internal interface IToothpaste : IProduct
     {
         string Ingredients { get; }
     }

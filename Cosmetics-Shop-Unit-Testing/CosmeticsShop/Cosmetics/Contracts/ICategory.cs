@@ -1,12 +1,12 @@
 ﻿namespace Cosmetics.Contracts
 {
-    public interface ICategory
+    internal interface ICategory
     {
         string Name { get; }
 
-        void AddCosmetics(IProduct cosmetics);
+        void AddProduct(IProduct cosmetics);
 
-        void RemoveCosmetics(IProduct cosmetics);
+        void RemoveProduct(IProduct cosmetics);
 
         string Print();
     }

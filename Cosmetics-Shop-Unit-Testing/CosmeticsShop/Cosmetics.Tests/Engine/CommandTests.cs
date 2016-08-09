@@ -61,6 +61,7 @@ namespace Cosmetics.Tests.Engine
         public void Parse_WhenTheInputParamsHasInvalidParameters_ShouldThrowArgumentNullException()
         {
             string invalidInput = "AddToCategory ";
+
             Assert.That(() => Command.Parse(invalidInput), Throws.ArgumentNullException.With.Message.Contains("List"));
         }
     }

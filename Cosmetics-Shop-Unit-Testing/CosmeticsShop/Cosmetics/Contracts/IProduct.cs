@@ -2,7 +2,7 @@
 {
     using Cosmetics.Common;
 
-    public interface IProduct
+    internal interface IProduct
     {
         string Name { get; }
 

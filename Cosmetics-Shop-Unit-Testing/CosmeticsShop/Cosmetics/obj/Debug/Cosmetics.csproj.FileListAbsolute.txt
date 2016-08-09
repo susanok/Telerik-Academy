@@ -1,12 +1,6 @@
-C:\Users\Suzana Manova\Desktop\OOP-Exams\Cosmetics-Skeleton\Cosmetics\bin\Debug\Cosmetics.exe.config
-C:\Users\Suzana Manova\Desktop\OOP-Exams\Cosmetics-Skeleton\Cosmetics\obj\Debug\Cosmetics.csprojResolveAssemblyReference.cache
-C:\Users\Suzana Manova\Desktop\OOP-Exams\Cosmetics-Skeleton\Cosmetics\bin\Debug\Cosmetics.exe
-C:\Users\Suzana Manova\Desktop\OOP-Exams\Cosmetics-Skeleton\Cosmetics\bin\Debug\Cosmetics.pdb
-C:\Users\Suzana Manova\Desktop\OOP-Exams\Cosmetics-Skeleton\Cosmetics\obj\Debug\Cosmetics.exe
-C:\Users\Suzana Manova\Desktop\OOP-Exams\Cosmetics-Skeleton\Cosmetics\obj\Debug\Cosmetics.pdb
 C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Cosmetics-Shop-Unit-Testing\CosmeticsShop\Cosmetics\bin\Debug\Cosmetics.exe.config
-C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Cosmetics-Shop-Unit-Testing\CosmeticsShop\Cosmetics\obj\Debug\Cosmetics.exe
-C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Cosmetics-Shop-Unit-Testing\CosmeticsShop\Cosmetics\obj\Debug\Cosmetics.pdb
 C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Cosmetics-Shop-Unit-Testing\CosmeticsShop\Cosmetics\bin\Debug\Cosmetics.exe
 C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Cosmetics-Shop-Unit-Testing\CosmeticsShop\Cosmetics\bin\Debug\Cosmetics.pdb
 C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Cosmetics-Shop-Unit-Testing\CosmeticsShop\Cosmetics\obj\Debug\Cosmetics.csprojResolveAssemblyReference.cache
+C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Cosmetics-Shop-Unit-Testing\CosmeticsShop\Cosmetics\obj\Debug\Cosmetics.exe
+C:\Users\Suzana Manova\Documents\GitHub\Telerik-Academy\Cosmetics-Shop-Unit-Testing\CosmeticsShop\Cosmetics\obj\Debug\Cosmetics.pdb

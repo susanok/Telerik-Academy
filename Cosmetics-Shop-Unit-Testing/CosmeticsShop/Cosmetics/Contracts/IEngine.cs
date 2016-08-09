@@ -1,6 +1,6 @@
 ﻿namespace Cosmetics.Contracts
 {
-    public interface IEngine
+    internal interface IEngine
     {
         void Start();
     }

@@ -5,7 +5,7 @@
 
     using Cosmetics.Contracts;
 
-    public class Command : ICommand
+    internal class Command : ICommand
     {
         private const char SplitCommandSymbol = ' ';
 
@@ -46,7 +46,7 @@
             {
                 if (value == null || value.Count == 0)
                 {
-                    throw new ArgumentNullException("List of strings cannot be null.");
+                    throw new ArgumentNullException("List of strings cannot be null or empty.");
                 }
 
                 this.parameters = value;
