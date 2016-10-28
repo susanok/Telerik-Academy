@@ -1,0 +1,131 @@
+body {
+  font-family: Roboto;
+  font-size: 16px;
+}
+
+#wrapper{
+  width: 1280px;
+  height: 480px;
+  background-color: rgb(26, 26, 26);
+}
+
+#play {
+  display: inline-block;
+
+}
+
+#side-play{
+  display: inline-block;
+  float: right;
+  width: 425px;
+}
+
+.title-playlist h3 a{
+  color: white;
+  font-weight: normal;
+  font-size: 0.8em;
+  margin-top: -5px;
+}
+
+.title-playlist p, .title-playlist p a{
+  color: rgb(183, 174, 167);
+  font-size: 0.9em;
+  margin-top: -20px;
+}
+
+.title-playlist{
+  border-bottom: 2px solid rgb(57, 59, 56);
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.fa-cog{
+  float: right;
+  margin-top: -50px;
+  margin-right: 15px;
+}
+
+.fa-cog:hover{
+  color: rgb(166, 63, 56);
+  cursor: pointer;
+}
+
+.fa-repeat, .fa-random, .fa-cog{
+  color: rgb(188, 189, 184);
+}
+
+.fa-repeat:hover, .fa-random:hover{
+  color: white;
+  cursor: pointer;
+}
+
+.fa-random{
+  margin-left: 5px;
+}
+
+ol{
+  list-style: none;
+}
+
+.playlist{
+  font-size: 0.8em;
+}
+
+.playlist .inactive-video{
+  background-color: rgb(34, 34, 34);
+}
+
+.video{
+  display: inline-block;
+  width: 425px;
+  margin-left: -40px;
+}
+
+.video-info{
+  display: inline-block;
+}
+
+.active-video{
+  background-color: rgb(58, 58, 58);
+}
+
+.fa-play{
+  color: rgb(166, 63, 56);
+}
+
+.video span{
+  display: inline-block;
+  margin-top: -10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.video:hover{
+  background-color: rgb(82, 82, 82);
+  cursor: pointer;
+}
+
+h4{
+  color: rgb(200, 201, 203);
+  font-weight: normal;
+}
+
+h5{
+  color: rgb(114, 113, 119);
+  margin-top: -10px;
+}
+
+.inactive-video span{
+  color: white;
+}
+
+
+
+
