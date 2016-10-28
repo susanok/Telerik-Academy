@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintSequence", "PrintSeque
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Age", "Age\Age.csproj", "{55C0147B-4CF3-4272-8749-D27900206773}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongSequence", "LongSequence\LongSequence.csproj", "{56E762C4-D7F9-48F9-A1AF-5BDBCD320D89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{55C0147B-4CF3-4272-8749-D27900206773}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55C0147B-4CF3-4272-8749-D27900206773}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55C0147B-4CF3-4272-8749-D27900206773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56E762C4-D7F9-48F9-A1AF-5BDBCD320D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E762C4-D7F9-48F9-A1AF-5BDBCD320D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E762C4-D7F9-48F9-A1AF-5BDBCD320D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E762C4-D7F9-48F9-A1AF-5BDBCD320D89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
