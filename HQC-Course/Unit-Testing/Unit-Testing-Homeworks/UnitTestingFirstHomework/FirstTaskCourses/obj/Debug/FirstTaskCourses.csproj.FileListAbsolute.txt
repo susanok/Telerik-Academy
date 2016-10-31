@@ -1,5 +1,0 @@
-c:\users\suzana manova\documents\visual studio 2015\Projects\UnitTestingFirstHomework\FirstTaskCourses\bin\Debug\FirstTaskCourses.dll
-c:\users\suzana manova\documents\visual studio 2015\Projects\UnitTestingFirstHomework\FirstTaskCourses\bin\Debug\FirstTaskCourses.pdb
-c:\users\suzana manova\documents\visual studio 2015\Projects\UnitTestingFirstHomework\FirstTaskCourses\obj\Debug\FirstTaskCourses.csprojResolveAssemblyReference.cache
-c:\users\suzana manova\documents\visual studio 2015\Projects\UnitTestingFirstHomework\FirstTaskCourses\obj\Debug\FirstTaskCourses.dll
-c:\users\suzana manova\documents\visual studio 2015\Projects\UnitTestingFirstHomework\FirstTaskCourses\obj\Debug\FirstTaskCourses.pdb
